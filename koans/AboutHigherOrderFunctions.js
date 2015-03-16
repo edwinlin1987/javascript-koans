@@ -34,8 +34,8 @@ describe("About Higher Order Functions", function () {
       /* initial */ 0
     );
     
-    expect(reduction).toBe(FILL_ME_IN);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(reduction).toBe(6);
+    expect(numbers).toEqual([1,2,3]);
   });
     
   it("should use 'forEach' for simple iteration", function () {
@@ -47,8 +47,8 @@ describe("About Higher Order Functions", function () {
 
     _(numbers).forEach(isEven);
     
-    expect(msg).toEqual(FILL_ME_IN);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(msg).toEqual("falsetruefalse");
+    expect(numbers).toEqual([1,2,3]);
   });
     
   it("should use 'all' to test whether all items pass condition", function () {
@@ -57,8 +57,8 @@ describe("About Higher Order Functions", function () {
 
     var isEven = function(x) { return x % 2 === 0 };
 
-    expect(_(onlyEven).all(isEven)).toBe(FILL_ME_IN);
-    expect(_(mixedBag).all(isEven)).toBe(FILL_ME_IN);
+    expect(_(onlyEven).all(isEven)).toBe(true);
+    expect(_(mixedBag).all(isEven)).toBe(false);
   });
     
   it("should use 'any' to test if any items passes condition" , function () {
@@ -67,8 +67,8 @@ describe("About Higher Order Functions", function () {
 
     var isEven = function(x) { return x % 2 === 0 };
 
-    expect(_(onlyEven).any(isEven)).toBe(FILL_ME_IN);
-    expect(_(mixedBag).any(isEven)).toBe(FILL_ME_IN);
+    expect(_(onlyEven).any(isEven)).toBe(true);
+    expect(_(mixedBag).any(isEven)).toBe(true);
   });
 
   it("should use range to generate an array", function() {
