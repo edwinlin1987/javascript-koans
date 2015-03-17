@@ -109,7 +109,21 @@ describe("About Applying What We Have Learnt", function() {
   /* UNCOMMENT FOR EXTRA CREDIT */
   
   it("should find the largest prime factor of a composite number", function () {
-  
+    
+    var largestPrimeFactor = function(num) {
+      var remainder = num;
+      var test = 2;
+      while (test <= remainder) {
+        if (remainder % test == 0) {
+          remainder = remainder / test;
+        }
+        else {
+          test += 1;
+        }
+      }
+      return test;
+    };
+    expect(largestPrimeFactor(22530200)).toBe(19);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
