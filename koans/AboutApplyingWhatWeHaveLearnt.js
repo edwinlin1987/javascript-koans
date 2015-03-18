@@ -128,11 +128,86 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
     
+    var palindrome = function(num) {
+      chars = num.toString();
+      chars = chars.split('');
+      charsb = chars.slice().reverse();
+      chars = chars.join()
+      charsb = charsb.join()
+      if (chars == charsb) { 
+        return true; 
+      }
+      else { 
+        return false; 
+      }
+    }
+
+
+    var largestPalindrome= function() {
+      var i;
+      var j;
+      var largest = 0;
+      for (i = 100; i < 1000; i++) {
+        for (j = 100; j < 1000; j++) {
+          if ((palindrome(i*j)) && (largest < (i*j))) {
+            largest = i*j;
+          }
+        }
+      }
+      return largest;
+
+    }
+    expect(largestPalindrome()).toBe(906609);
+
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
     
+    var conversion = function (x) {
+      var remainder = x;
+      var i = 2;
+      list = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+      while (i <= remainder) {
+        if (remainder % i == 0) {
+          list[i] = (list[i] += 1);
+          remainder = remainder / i;
+        }
+        else {
+          i += 1;
+        }
+      }
+      return list;
+    };
+
+
+
+    var smallestMultiple = function () {
+      var i;
+      var j;
+      var z;
+      var num = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+      var smallest = 1;
+      for (i = 0; i <= 20; i++) {
+        for (j= 1; j <= 20; j++) {
+          if (conversion(i)[j] > num[j]) {
+            num[j] = conversion(i)[j];
+          }
+        }
+      }
+      for (z = 1; z <= 20; z++) {
+        while (num[z] >= 1) {
+          smallest *= z;
+          num[z] -= 1;
+        }
+
+      }
+      return smallest;
+        
+
+    };
+
+    //expect(conversion(20)).toBe(true);
+    expect(smallestMultiple()).toBe(232792560);
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
