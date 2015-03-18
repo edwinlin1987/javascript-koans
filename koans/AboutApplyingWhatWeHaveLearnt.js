@@ -206,12 +206,37 @@ describe("About Applying What We Have Learnt", function() {
 
     };
 
-    //expect(conversion(20)).toBe(true);
     expect(smallestMultiple()).toBe(232792560);
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
+    /* presuming that this is a shortened statement of the Euler problem 
+    requiring the difference between sum of squares of the first natural numbers, 
+    I've tested it with the first 10 natural numbers but it should work with any. */
+    var sumSquares = function (nums) {
+      var i;
+      var sum = 0;
+      for (i = 0; i < nums.length; i++) {
+        sum += (nums[i]*nums[i]);
+      }
+      return sum;
+    };
+
+    var squareSum = function (nums) {
+      var sum = nums.reduce(function (sum, x) { return sum + x});
+      var sum = sum * sum;
+      return sum;
+    };
+
+    var difference = function (nums) {
+      return squareSum(nums) - sumSquares(nums);
+    };
+
+    expect(squareSum([1,2,3,4,5,6,7,8,9,10])).toBe(3025);
+    expect(sumSquares([1,2,3,4,5,6,7,8,9,10])).toBe(385);
+    expect(difference([1,2,3,4,5,6,7,8,9,10])).toBe(2640);
+    expect(difference(_.range(1,101))).toBe(25164150);
+
   });
 
   it("should find the 10001st prime", function () {
