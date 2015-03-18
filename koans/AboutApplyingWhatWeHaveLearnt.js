@@ -265,7 +265,7 @@ describe("About Applying What We Have Learnt", function() {
 
 
     expect(isPrime(19)).toBe(true);
-    expect(primeList(10001)).toBe(104743);
+    expect(primeList(10001)).toBe(104743); // successful but may take too long
   });
   
 });
